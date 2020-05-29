@@ -14,4 +14,3 @@ class FileLoader():
             return df.head(n)
         elif n < 0:
             return df.tail(-n)
-        
