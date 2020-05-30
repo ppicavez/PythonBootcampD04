@@ -10,10 +10,14 @@ def howManyMedals(df, participant_name):
     mask = (df["Name"] == participant_name) 
     df_selected = df[mask]
     gb = df_selected.groupby('Year')
-    result = gb['Gold','Silver','Bronze'].sum()
-    for ind_ligne, contenu_ligne in result.iterrows():
-        print("Voici le panda %s :" % ind_ligne)
-        print(contenu_ligne)
-        print("--------------------")
-    return result[0]
+    calcul = gb['Gold', 'Silver', 'Bronze'].sum()
+    for ind_ligne, contenu_ligne in calcul.iterrows():
+        medals = {}
+        medals['G'] = contenu_ligne[0]
+        medals['S'] = contenu_ligne[1]
+        medals['B'] = contenu_ligne[2]
+
+        result[ind_ligne]= medals
+
+    return result
 
