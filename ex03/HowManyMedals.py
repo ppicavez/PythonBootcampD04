@@ -7,7 +7,7 @@ def howManyMedals(df, participant_name):
     df['Silver'] = df["Medal"] == 'Silver'
     df['Bronze'] = df["Medal"] == 'Bronze'
 
-    mask = (df["Name"] == participant_name) 
+    mask = (df["Name"] == participant_name)
     df_selected = df[mask]
     gb = df_selected.groupby('Year')
     calcul = gb['Gold', 'Silver', 'Bronze'].sum()
@@ -16,8 +16,6 @@ def howManyMedals(df, participant_name):
         medals['G'] = contenu_ligne[0]
         medals['S'] = contenu_ligne[1]
         medals['B'] = contenu_ligne[2]
-
-        result[ind_ligne]= medals
+        result[ind_ligne] = medals
 
     return result
-
